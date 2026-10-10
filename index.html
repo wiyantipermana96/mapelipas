@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Perangkat Ajar & Penilaian Projek IPAS Blok 2 - SMKN 1 Tasikmalaya</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+                        adminlte: { dark: '#1e293b', sidebar: '#0f172a', card: '#ffffff', bg: '#f8fafc' },
+                        book: { bg: '#fdfbf7', border: '#e6dfd5', text: '#2c2c2c' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .textbook-font { font-family: 'Merriweather', serif; line-height: 1.8; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-adminlte-bg dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 h-16 fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 lg:px-6 shadow-sm">
+        <div class="flex items-center space-x-3">
+            <button id="sidebarToggle" class="text-slate-500 hover:text-primary-600 dark:text-slate-400 dark:hover:text-white focus:outline-none p-2 rounded-lg">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+            <div class="flex items-center space-x-2">
+                <div class="bg-primary-600 text-white p-2 rounded-lg shadow">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm lg:text-base text-slate-900 dark:text-white leading-tight">Projek IPAS Blok 2 • SMKN 1 Tasikmalaya</h1>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">Guru: Wiyanti Dewi Permana, SST., M.Pd • Fase E / Kelas X</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button id="themeToggle" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition" title="Ganti Tema">
+                <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                <i class="fa-solid fa-sun hidden dark:block text-lg text-yellow-400"></i>
+            </button>
+            <div class="flex items-center space-x-2 border-l pl-3 border-slate-200 dark:border-slate-700">
+                <div class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 font-bold flex items-center justify-center text-sm shadow-inner">
+                    WP
+                </div>
+                <div class="hidden md:block text-left">
+                    <div class="text-xs font-bold text-slate-800 dark:text-white">Wiyanti Dewi Permana, SST., M.Pd</div>
+                    <div class="text-[10px] text-slate-500 dark:text-slate-400">Guru Mata Pelajaran</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex pt-16 flex-1">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-64 bg-adminlte-sidebar text-slate-300 fixed inset-y-0 left-0 pt-16 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out border-r border-slate-800 flex flex-col justify-between overflow-y-auto custom-scrollbar">
+            <div class="p-4 space-y-6">
+                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/50 flex items-center space-x-3 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-primary-600 to-indigo-600 text-white font-bold flex items-center justify-center shadow">
+                        WP
+                    </div>
+                    <div class="overflow-hidden">
+                        <h4 class="text-xs font-bold text-white truncate">Wiyanti Dewi Permana</h4>
+                        <p class="text-[10px] text-slate-400 truncate">SMKN 1 Tasikmalaya</p>
+                        <span class="inline-block mt-1 px-1.5 py-0.5 bg-primary-500/20 text-primary-300 text-[9px] font-semibold rounded">Fase E / Kelas X</span>
+                    </div>
+                </div>
+
+                <nav class="space-y-1">
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Menu Utama</div>
+                    <a href="#dashboard" onclick="switchTab('dashboard')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition active-nav" data-target="dashboard">
+                        <i class="fa-solid fa-chart-pie w-5 text-center text-primary-400"></i>
+                        <span>Dashboard Guru</span>
+                    </a>
+                    <a href="#peta" onclick="switchTab('peta')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="peta">
+                        <i class="fa-solid fa-map-marked-alt w-5 text-center text-emerald-400"></i>
+                        <span>Peta & Alur Blok 2 (9 Minggu)</span>
+                    </a>
+
+                    <div class="pt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Menu Materi Utama (3 TP) + Input Manual</div>
+                    <a href="#materi-tp1" onclick="switchTab('materi-tp1')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="materi-tp1">
+                        <i class="fa-solid fa-book w-5 text-center text-blue-400"></i>
+                        <span>TP 1: Makhluk Hidup & Lingkungan</span>
+                    </a>
+                    <a href="#materi-tp2" onclick="switchTab('materi-tp2')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="materi-tp2">
+                        <i class="fa-solid fa-flask w-5 text-center text-rose-400"></i>
+                        <span>TP 2: Zat & Perubahannya</span>
+                    </a>
+                    <a href="#materi-tp3" onclick="switchTab('materi-tp3')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="materi-tp3">
+                        <i class="fa-solid fa-coins w-5 text-center text-amber-400"></i>
+                        <span>TP 3: Perilaku Ekonomi</span>
+                    </a>
+
+                    <div class="pt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Manajemen Kelas & Siswa</div>
+                    <a href="#manajemen-kelas" onclick="switchTab('manajemen-kelas')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="manajemen-kelas">
+                        <i class="fa-solid fa-school w-5 text-center text-amber-400"></i>
+                        <span>Manajemen Kelas</span>
+                    </a>
+                    <a href="#manajemen-siswa" onclick="switchTab('manajemen-siswa')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="manajemen-siswa">
+                        <i class="fa-solid fa-users-gear w-5 text-center text-indigo-400"></i>
+                        <span>Manajemen Siswa (Excel CSV)</span>
+                    </a>
+                    <a href="#presensi" onclick="switchTab('presensi')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="presensi">
+                        <i class="fa-solid fa-clipboard-user w-5 text-center text-cyan-400"></i>
+                        <span>Presensi Harian</span>
+                    </a>
+                    <a href="#rekap-presensi" onclick="switchTab('rekap-presensi')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="rekap-presensi">
+                        <i class="fa-solid fa-square-poll-vertical w-5 text-center text-teal-400"></i>
+                        <span>Rekap Presensi Siswa</span>
+                    </a>
+
+                    <div class="pt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Manajemen Nilai & Asesmen</div>
+                    <a href="#input-nilai" onclick="switchTab('input-nilai')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="input-nilai">
+                        <i class="fa-solid fa-pen-to-square w-5 text-center text-yellow-400"></i>
+                        <span>Input Nilai Test / Tugas</span>
+                    </a>
+                    <a href="#rekap-nilai" onclick="switchTab('rekap-nilai')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="rekap-nilai">
+                        <i class="fa-solid fa-award w-5 text-center text-orange-400"></i>
+                        <span>Rekap Nilai Siswa</span>
+                    </a>
+
+                    <div class="pt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Modul & Jobsheet (9 Minggu)</div>
+                    <div class="space-y-1 pl-2 text-xs">
+                        <a href="#modul-1" onclick="switchTab('modul-1')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-1"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span>Minggu 1: Mahluk Hidup</span></a>
+                        <a href="#modul-2" onclick="switchTab('modul-2')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-2"><span class="w-2 h-2 rounded-full bg-indigo-500"></span><span>Minggu 2: Interaksi & Formatif TP 1</span></a>
+                        <a href="#modul-3" onclick="switchTab('modul-3')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-3"><span class="w-2 h-2 rounded-full bg-purple-500"></span><span>Minggu 3: Jobsheet Projek 1 (Terarium)</span></a>
+                        <a href="#modul-4" onclick="switchTab('modul-4')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-4"><span class="w-2 h-2 rounded-full bg-pink-500"></span><span>Minggu 4: Jobsheet Projek 1 (Bumi)</span></a>
+                        <a href="#modul-5" onclick="switchTab('modul-5')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-5"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span>Minggu 5: Zat & Formatif TP 2</span></a>
+                        <a href="#modul-6" onclick="switchTab('modul-6')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-6"><span class="w-2 h-2 rounded-full bg-orange-500"></span><span>Minggu 6: Jobsheet Projek 2 (Es Krim)</span></a>
+                        <a href="#modul-7" onclick="switchTab('modul-7')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-7"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Minggu 7: Ekonomi & Formatif TP 3</span></a>
+                        <a href="#modul-8" onclick="switchTab('modul-8')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-8"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span>Minggu 8: Jobsheet Projek 3 (3R)</span></a>
+                        <a href="#modul-9" onclick="switchTab('modul-9')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-9"><span class="w-2 h-2 rounded-full bg-teal-500"></span><span>Minggu 9: Sumatif Blok II</span></a>
+                    </div>
+                </nav>
+            </div>
+            <div class="p-4 border-t border-slate-800 text-[11px] text-slate-500 text-center">
+                &copy; 2026 SMK Negeri 1 Tasikmalaya<br>Wiyanti Dewi Permana, SST., M.Pd
+            </div>
+        </aside>
+
+        <!-- Main Content View -->
+        <main class="flex-1 lg:ml-64 p-4 lg:p-8 overflow-y-auto">
+            
+            <!-- DASHBOARD TAB -->
+            <div id="tab-dashboard" class="tab-content space-y-6">
+                <div class="bg-gradient-to-r from-primary-700 via-primary-600 to-indigo-700 rounded-2xl p-6 lg:p-8 text-white shadow-lg relative overflow-hidden">
+                    <div class="relative z-10 max-w-3xl">
+                        <span class="bg-white/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Kurikulum Merdeka • E-Learning IPAS Mediatama Style</span>
+                        <h2 class="text-2xl lg:text-3xl font-bold mt-2">Master Perangkat Ajar & Penilaian Projek IPAS Blok 2</h2>
+                        <p class="text-primary-100 text-sm mt-2 leading-relaxed">
+                            Disusun khusus untuk guru hebat <strong>Wiyanti Dewi Permana, SST., M.Pd</strong> di <strong>SMK Negeri 1 Tasikmalaya</strong>. Dilengkapi fitur input materi manual, manajemen nilai test, dan ekspor Excel (CSV) presensi serta rekap nilai.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <button onclick="switchTab('materi-tp1')" class="bg-white text-primary-700 hover:bg-primary-50 font-semibold px-4 py-2 rounded-lg text-sm shadow transition flex items-center space-x-2">
+                                <i class="fa-solid fa-book-open"></i><span>Input & Kelola Materi 3 TP</span>
+                            </button>
+                            <button onclick="switchTab('input-nilai')" class="bg-primary-800/70 hover:bg-primary-800 text-white font-semibold px-4 py-2 rounded-lg text-sm border border-white/20 transition flex items-center space-x-2">
+                                <i class="fa-solid fa-pen-to-square"></i><span>Input Nilai Test / Tugas</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Total Kelas</div>
+                            <div id="statTotalKelas" class="text-2xl font-bold text-slate-900 dark:text-white mt-1">3 Kelas</div>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/40 text-blue-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Total Siswa</div>
+                            <div id="statTotalSiswa" class="text-2xl font-bold text-slate-900 dark:text-white mt-1">108 Siswa</div>
+                        </div>
+                        <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Daftar Test / Nilai</div>
+                            <div id="statTotalTests" class="text-2xl font-bold text-slate-900 dark:text-white mt-1">0 Test</div>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-50 dark:bg-yellow-900/40 text-yellow-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Total Alokasi JP</div>
+                            <div class="text-2xl font-bold text-slate-900 dark:text-white mt-1">72 JP</div>
+                        </div>
+                        <div class="w-12 h-12 bg-amber-50 dark:bg-amber-900/40 text-amber-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PETA BLOK 2 TAB -->
+            <div id="tab-peta" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-3">
+                        <i class="fa-solid fa-map-marked-alt text-emerald-500"></i>
+                        <span>Peta Alur Pembelajaran Blok 2 (Berdasarkan Rencana Ajar Resmi)</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">SMK Negeri 1 Tasikmalaya • Alokasi 72 JP (Oktober - Desember)</p>
+                    
+                    <div class="mt-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 uppercase">
+                                    <th class="p-3 border">Elemen Kurikulum</th>
+                                    <th class="p-3 border">Materi / Tema Projek (3 TP Resmi)</th>
+                                    <th class="p-3 border">Alokasi Waktu</th>
+                                    <th class="p-3 border">Pelaksanaan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                                <tr><td class="p-3 border font-semibold">1. Menjelaskan fenomena secara ilmiah</td><td class="p-3 border">TP 1: Mahluk hidup dan lingkungannya</td><td class="p-3 border">10 JP</td><td class="p-3 border">Oktober minggu ke 1,2</td></tr>
+                                <tr><td class="p-3 border font-semibold">2. Menyusun penyelidikan ilmiah</td><td class="p-3 border text-primary-600 font-bold">PROJEK 1 TEMA: Mini Ekosistem & Lapisan Bumi</td><td class="p-3 border">8 JP</td><td class="p-3 border">Oktober minggu ke 2</td></tr>
+                                <tr><td class="p-3 border font-semibold">3. Merefleksikan data & bukti ilmiah</td><td class="p-3 border text-primary-600 font-bold">PROJEK 1 TEMA: Mini Ekosistem & Lapisan Bumi</td><td class="p-3 border">18 JP</td><td class="p-3 border">Oktober minggu ke 3,4</td></tr>
+                                <tr><td class="p-3 border font-semibold">1. Menjelaskan fenomena secara ilmiah</td><td class="p-3 border">TP 2: Zat dan perubahannya</td><td class="p-3 border">5 JP</td><td class="p-3 border">Oktober minggu ke 5</td></tr>
+                                <tr><td class="p-3 border font-semibold">2. Menyusun penyelidikan ilmiah</td><td class="p-3 border text-indigo-600 font-bold">PROJEK 2 TEMA: Es Cream</td><td class="p-3 border">4 JP</td><td class="p-3 border">Oktober minggu ke 5</td></tr>
+                                <tr><td class="p-3 border font-semibold">3. Merefleksikan data & bukti ilmiah</td><td class="p-3 border text-indigo-600 font-bold">PROJEK 2 TEMA: Es Cream</td><td class="p-3 border">9 JP</td><td class="p-3 border">November minggu ke 1</td></tr>
+                                <tr><td class="p-3 border font-semibold">1. Menjelaskan fenomena secara ilmiah</td><td class="p-3 border">TP 3: Perilaku ekonomi dan kesejahteraan</td><td class="p-3 border">5 JP</td><td class="p-3 border">November minggu ke 2</td></tr>
+                                <tr><td class="p-3 border font-semibold">2. Menyusun penyelidikan ilmiah</td><td class="p-3 border text-emerald-600 font-bold">PROJEK 3 TEMA: Pengolahan sampah</td><td class="p-3 border">4 JP</td><td class="p-3 border">November minggu ke 2</td></tr>
+                                <tr><td class="p-3 border font-semibold">3. Merefleksikan data & bukti ilmiah</td><td class="p-3 border text-emerald-600 font-bold">PROJEK 3 TEMA: Pengolahan sampah</td><td class="p-3 border">9 JP</td><td class="p-3 border">November minggu ke 3</td></tr>
+                                <tr class="bg-red-50 dark:bg-red-900/20 font-bold"><td class="p-3 border" colspan="2">Sumatif Blok II Semester Ganjil</td><td class="p-3 border">9 JP</td><td class="p-3 border">November minggu ke 4</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- MENU MATERI 3 TP DENGAN INPUT MANUAL (AUTO SYNC)        -->
+            <!-- ======================================================= -->
+            
+            <!-- MATERI TP 1 -->
+            <div id="tab-materi-tp1" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase">Input & Kelola TP 1 • Otomatis Sync ke Minggu 1 & 2</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">TP 1: Makhluk Hidup dan Lingkungannya</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="switchTab('materi-tp2')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-lg text-xs font-semibold">TP 2 &rarr;</button>
+                        <button onclick="downloadWordDoc('TP1', 'Makhluk Hidup dan Lingkungannya')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-lg text-xs font-semibold shadow flex items-center space-x-2">
+                            <i class="fa-solid fa-file-word"></i><span>Download Word</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm space-y-4">
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-pen-nib text-blue-600"></i><span>Form Input / Edit Materi & Soal TP 1 (Manual)</span>
+                    </h3>
+                    <p class="text-xs text-slate-500">Ketik atau tempel materi dan soal tambahan di bawah ini, lalu klik Simpan.</p>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Judul / Sub-Materi TP 1:</label>
+                            <input type="text" id="inputTp1Title" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Contoh: Makhluk Hidup & Lingkungan Ekosistem Darat">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Isi Materi / Penjelasan Lengkap:</label>
+                            <textarea id="inputTp1Content" rows="5" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Tuliskan atau paste materi lengkap di sini..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Soal Evaluasi / Formatif Akhir TP 1:</label>
+                            <textarea id="inputTp1Questions" rows="4" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Tuliskan daftar soal latihan atau pilihan ganda formatif..."></textarea>
+                        </div>
+                        <button onclick="saveTpData('tp1')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition">
+                            <i class="fa-solid fa-save mr-1"></i> Simpan & Perbarui Modul Minggu 1 & 2
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-blue-900 dark:text-blue-300 font-sans" id="previewTp1Title">A. Pendahuluan Ekologi & Lingkungan</h3>
+                    <div id="previewTp1Content"><p>Memuat materi...</p></div>
+                    <div class="mt-6 pt-4 border-t border-book-border">
+                        <h4 class="font-bold text-base text-blue-900 dark:text-blue-300 font-sans mb-3">Evaluasi / Soal Formatif Akhir TP 1:</h4>
+                        <div id="previewTp1Questions" class="text-xs space-y-2 font-sans"><p>Memuat soal...</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MATERI TP 2 -->
+            <div id="tab-materi-tp2" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-rose-600 uppercase">Input & Kelola TP 2 • Otomatis Sync ke Minggu 5</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">TP 2: Zat dan Perubahannya</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="switchTab('materi-tp1')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 text-xs px-3 py-1.5 rounded-lg">&larr; TP 1</button>
+                        <button onclick="switchTab('materi-tp3')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 text-xs px-3 py-1.5 rounded-lg">TP 3 &rarr;</button>
+                        <button onclick="downloadWordDoc('TP2', 'Zat dan Perubahannya')" class="bg-rose-600 text-white px-4 py-1.5 rounded-lg text-xs font-semibold">Download Word</button>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm space-y-4">
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-pen-nib text-rose-600"></i><span>Form Input / Edit Materi & Soal TP 2 (Manual)</span>
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Judul / Sub-Materi TP 2:</label>
+                            <input type="text" id="inputTp2Title" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Contoh: Sifat Zat & Perubahan Fisika Kimia">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Isi Materi / Penjelasan Lengkap:</label>
+                            <textarea id="inputTp2Content" rows="5" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Tuliskan materi zat dan perubahannya..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Soal Evaluasi / Formatif Akhir TP 2:</label>
+                            <textarea id="inputTp2Questions" rows="4" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Tuliskan soal evaluasi TP 2..."></textarea>
+                        </div>
+                        <button onclick="saveTpData('tp2')" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition">
+                            <i class="fa-solid fa-save mr-1"></i> Simpan & Perbarui Modul Minggu 5
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-rose-900 dark:text-rose-300 font-sans" id="previewTp2Title">A. Pengertian Materi & Partikel Penyusun</h3>
+                    <div id="previewTp2Content"><p>Memuat materi...</p></div>
+                    <div class="mt-6 pt-4 border-t border-book-border">
+                        <h4 class="font-bold text-base text-rose-900 font-sans mb-3">Evaluasi / Soal Formatif Akhir TP 2:</h4>
+                        <div id="previewTp2Questions" class="text-xs space-y-2 font-sans"><p>Memuat soal...</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MATERI TP 3 -->
+            <div id="tab-materi-tp3" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase">Input & Kelola TP 3 • Otomatis Sync ke Minggu 7</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">TP 3: Perilaku Ekonomi dan Kesejahteraan</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="switchTab('materi-tp2')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 text-xs px-3 py-1.5 rounded-lg">&larr; TP 2</button>
+                        <button onclick="downloadWordDoc('TP3', 'Perilaku Ekonomi dan Kesejahteraan')" class="bg-amber-600 text-white px-4 py-1.5 rounded-lg text-xs font-semibold">Download Word</button>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm space-y-4">
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-pen-nib text-amber-600"></i><span>Form Input / Edit Materi & Soal TP 3 (Manual)</span>
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Judul / Sub-Materi TP 3:</label>
+                            <input type="text" id="inputTp3Title" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Contoh: Kebutuhan, Kelangkaan, dan Literasi Keuangan">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Isi Materi / Penjelasan Lengkap:</label>
+                            <textarea id="inputTp3Content" rows="5" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Tuliskan materi perilaku ekonomi..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Soal Evaluasi / Formatif Akhir TP 3:</label>
+                            <textarea id="inputTp3Questions" rows="4" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs" placeholder="Tuliskan soal evaluasi TP 3..."></textarea>
+                        </div>
+                        <button onclick="saveTpData('tp3')" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition">
+                            <i class="fa-solid fa-save mr-1"></i> Simpan & Perbarui Modul Minggu 7
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-amber-900 dark:text-amber-300 font-sans" id="previewTp3Title">A. Kebutuhan, Kelangkaan & Skala Prioritas</h3>
+                    <div id="previewTp3Content"><p>Memuat materi...</p></div>
+                    <div class="mt-6 pt-4 border-t border-book-border">
+                        <h4 class="font-bold text-base text-amber-900 font-sans mb-3">Evaluasi / Soal Formatif Akhir TP 3:</h4>
+                        <div id="previewTp3Questions" class="text-xs space-y-2 font-sans"><p>Memuat soal...</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MANAJEMEN KELAS TAB -->
+            <div id="tab-manajemen-kelas" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm">
+                    <div class="flex justify-between pb-4 border-b items-center">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Manajemen Kelas</h2>
+                            <p class="text-xs text-slate-500">Kelola rombongan belajar SMK Negeri 1 Tasikmalaya.</p>
+                        </div>
+                        <button onclick="openClassModal()" class="bg-primary-600 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow">Tambah Kelas</button>
+                    </div>
+                    <div class="mt-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100 dark:bg-slate-900 uppercase"><th class="p-3 border w-16 text-center">No</th><th class="p-3 border">Nama Kelas</th><th class="p-3 border">Jumlah Siswa</th><th class="p-3 border text-center w-36">Aksi</th></tr></thead>
+                            <tbody id="classTableBody" class="divide-y"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MANAJEMEN SISWA TAB -->
+            <div id="tab-manajemen-siswa" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between pb-4 border-b gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Manajemen Siswa (Excel CSV)</h2>
+                            <p class="text-xs text-slate-500">Format kolom CSV: NISN;NAMA;KELAS</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="downloadCsvTemplate()" class="bg-slate-700 text-white px-3 py-2 rounded-lg text-xs font-semibold">Download Template CSV</button>
+                            <label class="bg-emerald-600 text-white px-3 py-2 rounded-lg text-xs font-semibold cursor-pointer">Import CSV<input type="file" id="csvFileInput" accept=".csv" onchange="handleExcelCsvImport(event)" class="hidden"></label>
+                            <button onclick="openStudentModal()" class="bg-primary-600 text-white px-3 py-2 rounded-lg text-xs font-semibold">Tambah Siswa</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <label class="text-xs font-bold">Filter Kelas:</label>
+                        <select id="selectStudentFilter" onchange="renderStudentTable()" class="bg-slate-50 dark:bg-slate-900 border text-xs rounded-lg px-3 py-1.5"></select>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100 dark:bg-slate-900 uppercase"><th class="p-3 border w-16 text-center">No</th><th class="p-3 border">NISN</th><th class="p-3 border">Nama Lengkap</th><th class="p-3 border">Kelas</th><th class="p-3 border text-center w-36">Aksi</th></tr></thead>
+                            <tbody id="studentTableBody" class="divide-y"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRESENSI HARIAN TAB -->
+            <div id="tab-presensi" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm">
+                    <div class="flex flex-col sm:flex-row justify-between pb-4 border-b gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Presensi Harian</h2>
+                            <p class="text-xs text-slate-500">Catat kehadiran siswa secara fleksibel per tanggal.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <input type="date" id="presensiDateInput" onchange="renderPresensiTable()" class="border text-xs rounded-lg px-3 py-1.5 font-bold">
+                            <select id="presensiClassSelect" onchange="renderPresensiTable()" class="border text-xs rounded-lg px-3 py-1.5"></select>
+                            <button onclick="savePresensiData()" class="bg-cyan-600 text-white px-4 py-1.5 rounded-lg text-xs font-semibold">Simpan Presensi</button>
+                        </div>
+                    </div>
+                    <div class="mt-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100 dark:bg-slate-900 uppercase"><th class="p-3 border w-16 text-center">No</th><th class="p-3 border">Nama Siswa</th><th class="p-3 border">NISN</th><th class="p-3 border text-center w-72">Status</th><th class="p-3 border">Keterangan</th></tr></thead>
+                            <tbody id="presensiTableBody" class="divide-y"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REKAP PRESENSI TAB -->
+            <div id="tab-rekap-presensi" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between pb-4 border-b gap-4 items-center">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Rekap Presensi Siswa</h2>
+                            <p class="text-xs text-slate-500">Akumulasi kehadiran Hadir, Izin, Sakit, Alpa.</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <select id="selectRekapClass" onchange="renderRekapPresensiTable()" class="border text-xs rounded-lg px-3 py-1.5"></select>
+                            <button onclick="downloadAttendanceExcel()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-lg text-xs font-semibold shadow flex items-center space-x-1.5">
+                                <i class="fa-solid fa-file-excel"></i><span>Download Rekap Presensi (Excel)</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100 dark:bg-slate-900 uppercase"><th class="p-3 border w-16 text-center">No</th><th class="p-3 border">NISN</th><th class="p-3 border">Nama Siswa</th><th class="p-3 border text-center">H</th><th class="p-3 border text-center">I</th><th class="p-3 border text-center">S</th><th class="p-3 border text-center">A</th><th class="p-3 border text-center">Persentase</th></tr></thead>
+                            <tbody id="rekapPresensiTableBody" class="divide-y"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INPUT NILAI TAB -->
+            <div id="tab-input-nilai" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between pb-4 border-b gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                                <i class="fa-solid fa-pen-to-square text-yellow-500"></i><span>Manajemen Input Nilai Test / Tugas</span>
+                            </h2>
+                            <p class="text-xs text-slate-500">Buat nama test atau tugas, pilih kelas, lalu input nilai siswa.</p>
+                        </div>
+                        <button onclick="openTestModal()" class="bg-primary-600 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow">Buat Test / Tugas Baru</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Pilih Test / Tugas:</label>
+                            <select id="selectTestList" onchange="renderScoreInputTable()" class="w-full border rounded-lg px-3 py-2 text-xs bg-white dark:bg-slate-800"></select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Pilih Kelas:</label>
+                            <select id="selectScoreClass" onchange="renderScoreInputTable()" class="w-full border rounded-lg px-3 py-2 text-xs bg-white dark:bg-slate-800"></select>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <div id="testInfoDescription" class="text-xs text-slate-500 font-medium"></div>
+                        <button onclick="saveAllScores()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow">Simpan Nilai Kelas Ini</button>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100 dark:bg-slate-900 uppercase"><th class="p-3 border w-16 text-center">No</th><th class="p-3 border">NISN</th><th class="p-3 border">Nama Siswa</th><th class="p-3 border text-center w-48">Nilai (0 - 100)</th><th class="p-3 border">Keterangan / Catatan Guru</th></tr></thead>
+                            <tbody id="scoreInputTableBody" class="divide-y"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REKAP NILAI TAB -->
+            <div id="tab-rekap-nilai" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between pb-4 border-b gap-4 items-center">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                                <i class="fa-solid fa-award text-orange-500"></i><span>Rekapitulasi Nilai Siswa</span>
+                            </h2>
+                            <p class="text-xs text-slate-500">Rekap nilai seluruh test dan tugas per siswa berdasarkan kelas.</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <select id="selectGradeRecapClass" onchange="renderGradeRecapTable()" class="border text-xs rounded-lg px-3 py-1.5"></select>
+                            <button onclick="downloadGradeExcel()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-lg text-xs font-semibold shadow flex items-center space-x-1.5">
+                                <i class="fa-solid fa-file-excel"></i><span>Download Rekap Nilai (Excel)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table id="gradeRecapTable" class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr id="gradeRecapHeaderRow" class="bg-slate-100 dark:bg-slate-900 uppercase">
+                                    <th class="p-3 border w-16 text-center">No</th>
+                                    <th class="p-3 border">NISN</th>
+                                    <th class="p-3 border">Nama Siswa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gradeRecapTableBody" class="divide-y"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUL MINGGUAN -->
+            <div id="tab-modul-1" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg text-blue-900">Minggu 1: Makhluk Hidup & Lingkungannya (Sync TP 1)</h3><p id="modul1Text">Memuat materi dari TP 1...</p></div></div>
+            <div id="tab-modul-2" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg text-indigo-900">Minggu 2: Interaksi Ekosistem & Formatif Akhir TP 1</h3><p id="modul2Text">Memuat soal evaluasi dari TP 1...</p></div></div>
+            <div id="tab-modul-3" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg">Minggu 3: Jobsheet Projek 1 (Terarium)</h3><p>Langkah kerja praktikum terarium...</p></div></div>
+            <div id="tab-modul-4" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg">Minggu 4: Kajian Lapisan Bumi</h3><p>Materi struktur lapisan bumi...</p></div></div>
+            <div id="tab-modul-5" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg text-rose-900">Minggu 5: Zat & Formatif Akhir TP 2 (Sync TP 2)</h3><p id="modul5Text">Memuat materi TP 2...</p></div></div>
+            <div id="tab-modul-6" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg">Minggu 6: Jobsheet Projek 2 (Es Krim)</h3><p>Langkah kerja praktikum es krim...</p></div></div>
+            <div id="tab-modul-7" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg text-amber-900">Minggu 7: Perilaku Ekonomi & Formatif TP 3 (Sync TP 3)</h3><p id="modul7Text">Memuat materi TP 3...</p></div></div>
+            <div id="tab-modul-8" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg">Minggu 8: Jobsheet Projek 3 (Sampah 3R)</h3><p>Langkah kerja audit & daur ulang sampah...</p></div></div>
+            <div id="tab-modul-9" class="tab-content hidden space-y-6"><div class="bg-book-bg p-6 border rounded-xl textbook-font text-sm"><h3 class="font-bold text-lg">Minggu 9: Sumatif Blok II</h3><p>Naskah ujian sumatif akhir...</p></div></div>
+
+        </main>
+    </div>
+
+    <!-- MODAL KELAS -->
+    <div id="modalClass" class="fixed inset-0 z-50 bg-slate-900/50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md border shadow-xl">
+            <h3 id="classModalTitle" class="text-lg font-bold mb-4">Tambah Kelas</h3>
+            <input type="hidden" id="editClassIndex" value="-1">
+            <input type="text" id="inputClassName" class="w-full border rounded-lg px-3 py-2 text-xs mb-4 bg-slate-50 dark:bg-slate-900" placeholder="Nama kelas...">
+            <div class="flex justify-end space-x-3">
+                <button onclick="closeClassModal()" class="px-4 py-2 bg-slate-200 text-xs rounded-lg">Batal</button>
+                <button onclick="saveClass()" class="px-4 py-2 bg-primary-600 text-white text-xs rounded-lg">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SISWA -->
+    <div id="modalStudent" class="fixed inset-0 z-50 bg-slate-900/50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md border shadow-xl">
+            <h3 id="studentModalTitle" class="text-lg font-bold mb-4">Tambah Siswa</h3>
+            <input type="hidden" id="editStudentId" value="-1">
+            <div class="space-y-3">
+                <select id="modalStudentClass" class="w-full border rounded-lg px-3 py-2 text-xs bg-slate-50 dark:bg-slate-900"></select>
+                <input type="text" id="modalStudentName" class="w-full border rounded-lg px-3 py-2 text-xs bg-slate-50 dark:bg-slate-900" placeholder="Nama lengkap...">
+                <input type="text" id="modalStudentNis" class="w-full border rounded-lg px-3 py-2 text-xs bg-slate-50 dark:bg-slate-900" placeholder="NISN...">
+            </div>
+            <div class="flex justify-end space-x-3 mt-4">
+                <button onclick="closeStudentModal()" class="px-4 py-2 bg-slate-200 text-xs rounded-lg">Batal</button>
+                <button onclick="saveStudent()" class="px-4 py-2 bg-emerald-600 text-white text-xs rounded-lg">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TEST -->
+    <div id="modalTest" class="fixed inset-0 z-50 bg-slate-900/50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md border shadow-xl space-y-4">
+            <h3 class="text-lg font-bold">Buat Test / Tugas Baru</h3>
+            <div>
+                <label class="block text-xs font-semibold mb-1">Nama Test / Tugas:</label>
+                <input type="text" id="inputTestName" class="w-full border rounded-lg px-3 py-2 text-xs bg-slate-50 dark:bg-slate-900" placeholder="Nama test...">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold mb-1">Keterangan / Bobot:</label>
+                <input type="text" id="inputTestDesc" class="w-full border rounded-lg px-3 py-2 text-xs bg-slate-50 dark:bg-slate-900" placeholder="Keterangan...">
+            </div>
+            <div class="flex justify-end space-x-3 pt-2">
+                <button onclick="closeTestModal()" class="px-4 py-2 bg-slate-200 text-xs rounded-lg">Batal</button>
+                <button onclick="saveNewTest()" class="px-4 py-2 bg-primary-600 text-white text-xs rounded-lg">Buat Test</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load External Database and App Logic -->
+    <script src="database.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
