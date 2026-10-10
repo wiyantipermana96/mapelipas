@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Perangkat Ajar Projek IPAS Blok 2 - SMKN 1 Tasikmalaya</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+                        adminlte: { dark: '#1e293b', sidebar: '#0f172a', card: '#ffffff', bg: '#f8fafc' },
+                        book: { bg: '#fdfbf7', border: '#e6dfd5', text: '#2c2c2c' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .textbook-font { font-family: 'Merriweather', serif; line-height: 1.8; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-adminlte-bg dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 h-16 fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 lg:px-6 shadow-sm">
+        <div class="flex items-center space-x-3">
+            <button id="sidebarToggle" class="text-slate-500 hover:text-primary-600 dark:text-slate-400 dark:hover:text-white focus:outline-none p-2 rounded-lg">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+            <div class="flex items-center space-x-2">
+                <div class="bg-primary-600 text-white p-2 rounded-lg shadow">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm lg:text-base text-slate-900 dark:text-white leading-tight">Projek IPAS Blok 2 • SMKN 1 Tasikmalaya</h1>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">Guru: Wiyanti Dewi Permana, SST., M.Pd • Fase E / Kelas X</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button id="themeToggle" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition" title="Ganti Tema">
+                <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                <i class="fa-solid fa-sun hidden dark:block text-lg text-yellow-400"></i>
+            </button>
+            <div class="flex items-center space-x-2 border-l pl-3 border-slate-200 dark:border-slate-700">
+                <div class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 font-bold flex items-center justify-center text-sm shadow-inner">
+                    WP
+                </div>
+                <div class="hidden md:block text-left">
+                    <div class="text-xs font-bold text-slate-800 dark:text-white">Wiyanti Dewi Permana, SST., M.Pd</div>
+                    <div class="text-[10px] text-slate-500 dark:text-slate-400">Guru Mata Pelajaran</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex pt-16 flex-1">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-64 bg-adminlte-sidebar text-slate-300 fixed inset-y-0 left-0 pt-16 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out border-r border-slate-800 flex flex-col justify-between overflow-y-auto custom-scrollbar">
+            <div class="p-4 space-y-6">
+                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/50 flex items-center space-x-3 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-primary-600 to-indigo-600 text-white font-bold flex items-center justify-center shadow">
+                        WP
+                    </div>
+                    <div class="overflow-hidden">
+                        <h4 class="text-xs font-bold text-white truncate">Wiyanti Dewi Permana</h4>
+                        <p class="text-[10px] text-slate-400 truncate">SMKN 1 Tasikmalaya</p>
+                        <span class="inline-block mt-1 px-1.5 py-0.5 bg-primary-500/20 text-primary-300 text-[9px] font-semibold rounded">Fase E / Kelas X</span>
+                    </div>
+                </div>
+
+                <nav class="space-y-1">
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Menu Utama</div>
+                    <a href="#dashboard" onclick="switchTab('dashboard')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition active-nav" data-target="dashboard">
+                        <i class="fa-solid fa-chart-pie w-5 text-center text-primary-400"></i>
+                        <span>Dashboard Guru</span>
+                    </a>
+                    <a href="#peta" onclick="switchTab('peta')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="peta">
+                        <i class="fa-solid fa-map-marked-alt w-5 text-center text-emerald-400"></i>
+                        <span>Peta & Alur Blok 2 (9 Minggu)</span>
+                    </a>
+
+                    <div class="pt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Menu Materi Utama (3 TP)</div>
+                    <a href="#materi-tp1" onclick="switchTab('materi-tp1')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="materi-tp1">
+                        <i class="fa-solid fa-book w-5 text-center text-blue-400"></i>
+                        <span>TP 1: Makhluk Hidup & Lingkungan</span>
+                    </a>
+                    <a href="#materi-tp2" onclick="switchTab('materi-tp2')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="materi-tp2">
+                        <i class="fa-solid fa-flask w-5 text-center text-rose-400"></i>
+                        <span>TP 2: Zat & Perubahannya</span>
+                    </a>
+                    <a href="#materi-tp3" onclick="switchTab('materi-tp3')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="materi-tp3">
+                        <i class="fa-solid fa-coins w-5 text-center text-amber-400"></i>
+                        <span>TP 3: Perilaku Ekonomi</span>
+                    </a>
+
+                    <div class="pt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Manajemen Kelas & Siswa</div>
+                    <a href="#manajemen-kelas" onclick="switchTab('manajemen-kelas')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="manajemen-kelas">
+                        <i class="fa-solid fa-school w-5 text-center text-amber-400"></i>
+                        <span>Manajemen Kelas</span>
+                    </a>
+                    <a href="#manajemen-siswa" onclick="switchTab('manajemen-siswa')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="manajemen-siswa">
+                        <i class="fa-solid fa-users-gear w-5 text-center text-indigo-400"></i>
+                        <span>Manajemen Siswa (Excel CSV)</span>
+                    </a>
+                    <a href="#presensi" onclick="switchTab('presensi')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="presensi">
+                        <i class="fa-solid fa-clipboard-user w-5 text-center text-cyan-400"></i>
+                        <span>Presensi Harian</span>
+                    </a>
+                    <a href="#rekap-presensi" onclick="switchTab('rekap-presensi')" class="nav-item flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition" data-target="rekap-presensi">
+                        <i class="fa-solid fa-square-poll-vertical w-5 text-center text-teal-400"></i>
+                        <span>Rekap Presensi Siswa</span>
+                    </a>
+
+                    <div class="pt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">Modul & Jobsheet (9 Minggu)</div>
+                    <div class="space-y-1 pl-2 text-xs">
+                        <a href="#modul-1" onclick="switchTab('modul-1')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-1"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span>Minggu 1: Mahluk Hidup</span></a>
+                        <a href="#modul-2" onclick="switchTab('modul-2')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-2"><span class="w-2 h-2 rounded-full bg-indigo-500"></span><span>Minggu 2: Interaksi & Formatif TP 1</span></a>
+                        <a href="#modul-3" onclick="switchTab('modul-3')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-3"><span class="w-2 h-2 rounded-full bg-purple-500"></span><span>Minggu 3: Jobsheet Projek 1 (Terarium)</span></a>
+                        <a href="#modul-4" onclick="switchTab('modul-4')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-4"><span class="w-2 h-2 rounded-full bg-pink-500"></span><span>Minggu 4: Jobsheet Projek 1 (Bumi)</span></a>
+                        <a href="#modul-5" onclick="switchTab('modul-5')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-5"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span>Minggu 5: Zat & Formatif TP 2</span></a>
+                        <a href="#modul-6" onclick="switchTab('modul-6')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-6"><span class="w-2 h-2 rounded-full bg-orange-500"></span><span>Minggu 6: Jobsheet Projek 2 (Es Krim)</span></a>
+                        <a href="#modul-7" onclick="switchTab('modul-7')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-7"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Minggu 7: Ekonomi & Formatif TP 3</span></a>
+                        <a href="#modul-8" onclick="switchTab('modul-8')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-8"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span>Minggu 8: Jobsheet Projek 3 (3R)</span></a>
+                        <a href="#modul-9" onclick="switchTab('modul-9')" class="nav-item flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition" data-target="modul-9"><span class="w-2 h-2 rounded-full bg-teal-500"></span><span>Minggu 9: Sumatif Blok II</span></a>
+                    </div>
+                </nav>
+            </div>
+            <div class="p-4 border-t border-slate-800 text-[11px] text-slate-500 text-center">
+                &copy; 2026 SMK Negeri 1 Tasikmalaya<br>Wiyanti Dewi Permana, SST., M.Pd
+            </div>
+        </aside>
+
+        <!-- Main Content View -->
+        <main class="flex-1 lg:ml-64 p-4 lg:p-8 overflow-y-auto">
+            
+            <!-- DASHBOARD TAB -->
+            <div id="tab-dashboard" class="tab-content space-y-6">
+                <div class="bg-gradient-to-r from-primary-700 via-primary-600 to-indigo-700 rounded-2xl p-6 lg:p-8 text-white shadow-lg relative overflow-hidden">
+                    <div class="relative z-10 max-w-3xl">
+                        <span class="bg-white/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Kurikulum Merdeka • E-Learning IPAS Mediatama Style</span>
+                        <h2 class="text-2xl lg:text-3xl font-bold mt-2">Master Perangkat Ajar Projek IPAS Blok 2</h2>
+                        <p class="text-primary-100 text-sm mt-2 leading-relaxed">
+                            Disusun khusus untuk guru hebat <strong>Wiyanti Dewi Permana, SST., M.Pd</strong> di <strong>SMK Negeri 1 Tasikmalaya</strong>. Seluruh data database siswa terintegrasi secara dinamis di sistem lokal Anda.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <button onclick="switchTab('materi-tp1')" class="bg-white text-primary-700 hover:bg-primary-50 font-semibold px-4 py-2 rounded-lg text-sm shadow transition flex items-center space-x-2">
+                                <i class="fa-solid fa-book-open"></i><span>Buka Menu Materi 3 TP</span>
+                            </button>
+                            <button onclick="switchTab('rekap-presensi')" class="bg-primary-800/70 hover:bg-primary-800 text-white font-semibold px-4 py-2 rounded-lg text-sm border border-white/20 transition flex items-center space-x-2">
+                                <i class="fa-solid fa-square-poll-vertical"></i><span>Buka Rekap Presensi Siswa</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Total Kelas</div>
+                            <div id="statTotalKelas" class="text-2xl font-bold text-slate-900 dark:text-white mt-1">0 Kelas</div>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/40 text-blue-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Total Siswa</div>
+                            <div id="statTotalSiswa" class="text-2xl font-bold text-slate-900 dark:text-white mt-1">0 Siswa</div>
+                        </div>
+                        <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Modul Buku Digital</div>
+                            <div class="text-2xl font-bold text-slate-900 dark:text-white mt-1">9 Bab Lengkap</div>
+                        </div>
+                        <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/40 text-purple-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Total Alokasi JP</div>
+                            <div class="text-2xl font-bold text-slate-900 dark:text-white mt-1">72 JP</div>
+                        </div>
+                        <div class="w-12 h-12 bg-amber-50 dark:bg-amber-900/40 text-amber-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PETA BLOK 2 TAB -->
+            <div id="tab-peta" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-3">
+                        <i class="fa-solid fa-map-marked-alt text-emerald-500"></i>
+                        <span>Peta Alur Pembelajaran Blok 2 (Berdasarkan Rencana Ajar Resmi)</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">SMK Negeri 1 Tasikmalaya • Alokasi 72 JP (Oktober - Desember)</p>
+                    
+                    <div class="mt-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 uppercase">
+                                    <th class="p-3 border">Elemen Kurikulum</th>
+                                    <th class="p-3 border">Materi / Tema Projek (3 TP Resmi)</th>
+                                    <th class="p-3 border">Alokasi Waktu</th>
+                                    <th class="p-3 border">Pelaksanaan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                                <tr><td class="p-3 border font-semibold">1. Menjelaskan fenomena secara ilmiah</td><td class="p-3 border">TP 1: Mahluk hidup dan lingkungannya</td><td class="p-3 border">10 JP</td><td class="p-3 border">Oktober minggu ke 1,2</td></tr>
+                                <tr><td class="p-3 border font-semibold">2. Menyusun penyelidikan ilmiah</td><td class="p-3 border text-primary-600 font-bold">PROJEK 1 TEMA: Mini Ekosistem & Lapisan Bumi</td><td class="p-3 border">8 JP</td><td class="p-3 border">Oktober minggu ke 2</td></tr>
+                                <tr><td class="p-3 border font-semibold">3. Merefleksikan data & bukti ilmiah</td><td class="p-3 border text-primary-600 font-bold">PROJEK 1 TEMA: Mini Ekosistem & Lapisan Bumi</td><td class="p-3 border">18 JP</td><td class="p-3 border">Oktober minggu ke 3,4</td></tr>
+                                <tr><td class="p-3 border font-semibold">1. Menjelaskan fenomena secara ilmiah</td><td class="p-3 border">TP 2: Zat dan perubahannya</td><td class="p-3 border">5 JP</td><td class="p-3 border">Oktober minggu ke 5</td></tr>
+                                <tr><td class="p-3 border font-semibold">2. Menyusun penyelidikan ilmiah</td><td class="p-3 border text-indigo-600 font-bold">PROJEK 2 TEMA: Es Cream</td><td class="p-3 border">4 JP</td><td class="p-3 border">Oktober minggu ke 5</td></tr>
+                                <tr><td class="p-3 border font-semibold">3. Merefleksikan data & bukti ilmiah</td><td class="p-3 border text-indigo-600 font-bold">PROJEK 2 TEMA: Es Cream</td><td class="p-3 border">9 JP</td><td class="p-3 border">November minggu ke 1</td></tr>
+                                <tr><td class="p-3 border font-semibold">1. Menjelaskan fenomena secara ilmiah</td><td class="p-3 border">TP 3: Perilaku ekonomi dan kesejahteraan</td><td class="p-3 border">5 JP</td><td class="p-3 border">November minggu ke 2</td></tr>
+                                <tr><td class="p-3 border font-semibold">2. Menyusun penyelidikan ilmiah</td><td class="p-3 border text-emerald-600 font-bold">PROJEK 3 TEMA: Pengolahan sampah</td><td class="p-3 border">4 JP</td><td class="p-3 border">November minggu ke 2</td></tr>
+                                <tr><td class="p-3 border font-semibold">3. Merefleksikan data & bukti ilmiah</td><td class="p-3 border text-emerald-600 font-bold">PROJEK 3 TEMA: Pengolahan sampah</td><td class="p-3 border">9 JP</td><td class="p-3 border">November minggu ke 3</td></tr>
+                                <tr class="bg-red-50 dark:bg-red-900/20 font-bold"><td class="p-3 border" colspan="2">Sumatif Blok II Semester Ganjil</td><td class="p-3 border">9 JP</td><td class="p-3 border">November minggu ke 4</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- MENU MATERI 3 TP (DOKUMEN UTUH DARI FILE ASLI)          -->
+            <!-- ======================================================= -->
+            
+            <!-- MATERI TP 1 -->
+            <div id="tab-materi-tp1" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase">Materi Master TP 1 • Dokumen Resmi Utuh Mediatama Style</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Makhluk Hidup dan Lingkungannya</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="switchTab('materi-tp2')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-lg text-xs font-semibold">TP 2 &rarr;</button>
+                        <button onclick="downloadWordDoc('TP1', 'Makhluk Hidup dan Lingkungannya')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-lg text-xs font-semibold shadow flex items-center space-x-2">
+                            <i class="fa-solid fa-file-word"></i><span>Download Word</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-blue-900 dark:text-blue-300 font-sans">A. Pendahuluan Ekologi & Lingkungan</h3>
+                    <p>Pernahkah kalian memperhatikan halaman sekolah pada pagi hari? Di halaman sekolah mungkin terdapat pohon, rumput, semut, kupu-kupu, burung, cacing, dan berbagai organisme kecil yang tidak selalu terlihat. Di tempat yang sama terdapat tanah, air, udara, cahaya matahari, suhu, kelembapan, serta berbagai benda tidak hidup lainnya. Semua komponen tersebut tidak berdiri sendiri. Pohon membutuhkan air, mineral dari tanah, karbon dioksida, dan cahaya matahari untuk melakukan fotosintesis. Serangga membutuhkan tumbuhan sebagai sumber makanan. Burung dapat memakan serangga. Ketika organisme mati, mikroorganisme membantu menguraikan sisa-sisa organisme tersebut sehingga unsur-unsur tertentu kembali tersedia bagi lingkungan. Dengan demikian, lingkungan merupakan suatu sistem yang terdiri atas berbagai komponen yang saling berhubungan dan saling memengaruhi. Ilmu yang mempelajari hubungan antara makhluk hidup dengan lingkungan tempat hidupnya disebut ekologi. Pemahaman mengenai makhluk hidup dan lingkungan sangat penting karena berbagai persoalan kehidupan manusia saat ini berkaitan erat dengan lingkungan, seperti pencemaran, kerusakan habitat, berkurangnya keanekaragaman hayati, perubahan iklim, sampah, kekurangan air bersih, dan kerusakan tanah.</p>
+                    <h3 class="font-bold text-lg text-blue-900 dark:text-blue-300 font-sans">B. Ciri-Ciri Makhluk Hidup</h3>
+                    <p>Makhluk hidup adalah organisme yang mempunyai karakteristik kehidupan sehingga mampu menjalankan berbagai proses biologis untuk mempertahankan hidupnya. Makhluk hidup sangat beragam, mulai dari bakteri mikroskopis hingga pohon raksasa dan manusia. Walaupun mempunyai bentuk, ukuran, dan cara hidup yang berbeda, makhluk hidup pada umumnya mempunyai sejumlah ciri yang membedakannya dari benda mati: 1. Bernapas (pertukaran gas respirasi sel), 2. Membutuhkan makanan atau energi (fotosintesis dan konsumsi), 3. Tumbuh dan berkembang (pertambahan massa kuantitatif dan kedewasaan kualitatif), 4. Bergerak (perpindahan tempat maupun bagian tubuh seperti fototropisme), 5. Peka terhadap rangsangan (iritabilitas), 6. Berkembang biak (seksual dan aseksual), 7. Mengeluarkan zat sisa (ekskresi pernapasan, keringat, urine), 8. Melakukan metabolisme (keseluruhan reaksi kimia sel).</p>
+                    <h3 class="font-bold text-lg text-blue-900 dark:text-blue-300 font-sans">C. Kebutuhan Makhluk Hidup & Komponen Ekosistem</h3>
+                    <p>Agar dapat bertahan hidup, organisme memerlukan air, makanan/nutrisi, oksigen, cahaya, suhu yang sesuai, dan habitat. Lingkungan terdiri atas komponen biotik (makhluk hidup) dan abiotik (faktor tak hidup seperti air, tanah, udara, suhu, pH, mineral). Kedua komponen ini saling berinteraksi membentuk tingkatan organisasi kehidupan: Individu &rarr; Populasi &rarr; Komunitas &rarr; Ekosistem &rarr; Bioma &rarr; Biosfer. Aliran energi mengalir dari matahari ke produsen, konsumen, hingga dekomposer, sementara materi mengalami siklus daur ulang yang seimbang.</p>
+                </div>
+            </div>
+
+            <!-- MATERI TP 2 -->
+            <div id="tab-materi-tp2" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-rose-600 uppercase">Materi Master TP 2 • Dokumen Resmi Utuh Mediatama Style</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Zat dan Perubahannya</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="switchTab('materi-tp1')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-lg text-xs font-semibold">&larr; TP 1</button>
+                        <button onclick="switchTab('materi-tp3')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-lg text-xs font-semibold">TP 3 &rarr;</button>
+                        <button onclick="downloadWordDoc('TP2', 'Zat dan Perubahannya')" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-1.5 rounded-lg text-xs font-semibold shadow flex items-center space-x-2">
+                            <i class="fa-solid fa-file-word"></i><span>Download Word</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-rose-900 dark:text-rose-300 font-sans">A. Pengertian Materi & Partikel Penyusun</h3>
+                    <p>Materi adalah segala sesuatu yang mempunyai massa dan menempati ruang. Materi di alam tersusun atas partikel dasar yang sangat kecil berupa atom, molekul, dan ion. Wujud zat dibagi menjadi padat, cair, dan gas dengan karakteristik jarak dan gerak partikel yang khas. Sifat materi diklasifikasikan menjadi sifat fisika (dapat diamati tanpa membentuk zat baru) dan sifat kimia (berkaitan dengan pembentukan zat baru melalui reaksi kimia).</p>
+                    <h3 class="font-bold text-lg text-rose-900 dark:text-rose-300 font-sans">B. Unsur, Senyawa, dan Campuran</h3>
+                    <p>Unsur adalah zat murni yang tersusun dari satu jenis atom (misal: Fe, Au, O). Senyawa adalah zat gabungan dua atau lebih unsur secara kimia dalam perbandingan tetap (misal: H₂O, CO₂). Campuran adalah gabungan fisik zat tanpa membentuk zat baru, yang terbagi menjadi campuran homogen (larutan yang seragam) dan campuran heterogen (komposisi tidak seragam).</p>
+                    <h3 class="font-bold text-lg text-rose-900 dark:text-rose-300 font-sans">C. Perubahan Fisika dan Perubahan Kimia</h3>
+                    <p>Perubahan fisika (seperti es mencair, air menguap, gula larut) tidak menghasilkan zat baru. Perubahan kimia (seperti besi berkarat, kayu dibakar, makanan membusuk) menghasilkan zat baru dengan sifat berbeda akibat reaksi kimia yang ditandai perubahan warna, timbul gas, perubahan suhu, atau endapan.</p>
+                </div>
+            </div>
+
+            <!-- MATERI TP 3 -->
+            <div id="tab-materi-tp3" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase">Materi Master TP 3 • Dokumen Resmi Utuh Mediatama Style</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Perilaku Ekonomi dan Kesejahteraan</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="switchTab('materi-tp2')" class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-lg text-xs font-semibold">&larr; TP 2</button>
+                        <button onclick="downloadWordDoc('TP3', 'Perilaku Ekonomi dan Kesejahteraan')" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-1.5 rounded-lg text-xs font-semibold shadow flex items-center space-x-2">
+                            <i class="fa-solid fa-file-word"></i><span>Download Word</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-amber-900 dark:text-amber-300 font-sans">A. Kebutuhan, Kelangkaan & Skala Prioritas</h3>
+                    <p>Setiap manusia memiliki kebutuhan (hal esensial untuk kelangsungan hidup) dan keinginan (bersifat tambahan kepuasan). Kelangkaan (scarcity) terjadi karena kebutuhan tidak terbatas namun sumber daya terbatas, menuntut manusia membuat pilihan, skala prioritas, dan memahami biaya peluang. Kegiatan ekonomi meliputi Produksi, Distribusi, dan Konsumsi.</p>
+                    <h3 class="font-bold text-lg text-amber-900 dark:text-amber-300 font-sans">B. Literasi Keuangan & Kesejahteraan</h3>
+                    <p>Perilaku ekonomi yang baik menuntut penyusunan anggaran pendapatan dan pengeluaran, kebiasaan menabung, investasi yang bijak, serta pertimbangan terhadap keberlanjutan lingkungan guna mencapai kesejahteraan hidup secara layak.</p>
+                </div>
+            </div>
+
+            <!-- MANAJEMEN KELAS TAB -->
+            <div id="tab-manajemen-kelas" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-slate-200 dark:border-slate-700 gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-3">
+                                <i class="fa-solid fa-school text-amber-500"></i>
+                                <span>Manajemen Kelas (Tabel Riwayat CRUD)</span>
+                            </h2>
+                            <p class="text-xs text-slate-500 mt-1">Kelola rombongan belajar yang diampu di SMK Negeri 1 Tasikmalaya.</p>
+                        </div>
+                        <button onclick="openClassModal()" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i><span>Tambah Kelas Baru</span>
+                        </button>
+                    </div>
+
+                    <div class="mt-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 uppercase">
+                                    <th class="p-3 border w-16 text-center">No</th>
+                                    <th class="p-3 border">Nama Kelas / Rombel</th>
+                                    <th class="p-3 border">Jumlah Siswa</th>
+                                    <th class="p-3 border text-center w-36">Aksi (Edit / Hapus)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="classTableBody" class="divide-y divide-slate-200 dark:divide-slate-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MANAJEMEN SISWA TAB (EXCEL CSV IMPORT) -->
+            <div id="tab-manajemen-siswa" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-slate-200 gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-3">
+                                <i class="fa-solid fa-users-gear text-indigo-500"></i>
+                                <span>Manajemen Siswa (Format Excel CSV)</span>
+                            </h2>
+                            <p class="text-xs text-slate-500 mt-1">Format kolom CSV: NISN;NAMA;KELAS (Bisa dibuka dan diedit di Microsoft Excel atau Google Sheets).</p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button onclick="downloadCsvTemplate()" class="bg-slate-700 hover:bg-slate-800 text-white px-3 py-2 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5">
+                                <i class="fa-solid fa-file-arrow-down"></i><span>Download Template Excel (CSV)</span>
+                            </button>
+                            <label class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-lg text-xs font-semibold cursor-pointer transition flex items-center space-x-1.5 shadow">
+                                <i class="fa-solid fa-file-excel"></i><span>Import File Excel (CSV)</span>
+                                <input type="file" id="csvFileInput" accept=".csv" onchange="handleExcelCsvImport(event)" class="hidden">
+                            </label>
+                            <button onclick="openStudentModal()" class="bg-primary-600 hover:bg-primary-700 text-white px-3 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-1.5">
+                                <i class="fa-solid fa-user-plus"></i><span>Tambah Siswa</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <label class="text-xs font-bold text-slate-700 dark:text-slate-300">Filter Kelas:</label>
+                        <select id="selectStudentFilter" onchange="renderStudentTable()" class="bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs rounded-lg px-3 py-1.5"></select>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 uppercase">
+                                    <th class="p-3 border w-16 text-center">No</th>
+                                    <th class="p-3 border">NISN (Kolom A)</th>
+                                    <th class="p-3 border">NAMA LENGKAP (Kolom B)</th>
+                                    <th class="p-3 border">KELAS (Kolom C)</th>
+                                    <th class="p-3 border text-center w-36">Aksi (Edit / Hapus)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTableBody" class="divide-y divide-slate-200 dark:divide-slate-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRESENSI HARIAN TAB -->
+            <div id="tab-presensi" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-slate-200 gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-3">
+                                <i class="fa-solid fa-clipboard-user text-cyan-500"></i>
+                                <span>Menu Presensi Harian Berbasis Tanggal</span>
+                            </h2>
+                            <p class="text-xs text-slate-500 mt-1">Pilih tanggal pertemuan secara fleksibel dan catat kehadiran siswa per kelas.</p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <div>
+                                <label class="text-[10px] font-bold uppercase text-slate-500 block mb-1">Tanggal Pertemuan:</label>
+                                <input type="date" id="presensiDateInput" onchange="renderPresensiTable()" class="bg-slate-50 dark:bg-slate-900 border text-xs rounded-lg px-3 py-1.5 font-bold">
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold uppercase text-slate-500 block mb-1">Kelas:</label>
+                                <select id="presensiClassSelect" onchange="renderPresensiTable()" class="bg-slate-50 dark:bg-slate-900 border text-xs rounded-lg px-3 py-1.5"></select>
+                            </div>
+                            <button onclick="savePresensiData()" class="self-end bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-1.5 rounded-lg text-xs font-semibold shadow transition">
+                                <i class="fa-solid fa-save mr-1"></i> Simpan Presensi
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 uppercase">
+                                    <th class="p-3 border w-16 text-center">No</th>
+                                    <th class="p-3 border">Nama Siswa</th>
+                                    <th class="p-3 border">NISN</th>
+                                    <th class="p-3 border text-center w-72">Status Kehadiran</th>
+                                    <th class="p-3 border">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="presensiTableBody" class="divide-y divide-slate-200 dark:divide-slate-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REKAP PRESENSI TAB -->
+            <div id="tab-rekap-presensi" class="tab-content hidden space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-slate-200 gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-3">
+                                <i class="fa-solid fa-square-poll-vertical text-teal-500"></i>
+                                <span>Rekap Presensi Kehadiran Siswa (Akumulasi Blok 2)</span>
+                            </h2>
+                            <p class="text-xs text-slate-500 mt-1">Rekapitulasi total Hadir, Izin, Sakit, dan Alpa per siswa berdasarkan seluruh tanggal presensi yang tercatat.</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <label class="text-xs font-bold text-slate-700 dark:text-slate-300">Pilih Kelas:</label>
+                            <select id="selectRekapClass" onchange="renderRekapPresensiTable()" class="bg-slate-50 dark:bg-slate-900 border text-xs rounded-lg px-3 py-1.5"></select>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 uppercase">
+                                    <th class="p-3 border w-16 text-center">No</th>
+                                    <th class="p-3 border">NISN</th>
+                                    <th class="p-3 border">Nama Lengkap Siswa</th>
+                                    <th class="p-3 border text-center text-emerald-600">Hadir (H)</th>
+                                    <th class="p-3 border text-center text-blue-600">Izin (I)</th>
+                                    <th class="p-3 border text-center text-amber-600">Sakit (S)</th>
+                                    <th class="p-3 border text-center text-red-600">Alpa (A)</th>
+                                    <th class="p-3 border text-center">Persentase Kehadiran</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rekapPresensiTableBody" class="divide-y divide-slate-200 dark:divide-slate-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- MODUL MINGGUAN & JOBSHEET PRAKTIKUM                     -->
+            <!-- ======================================================= -->
+            
+            <!-- MODUL 1: MINGGU 1 (MAHLUK HIDUP) -->
+            <div id="tab-modul-1" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase">Buku Digital • Bab 1 • Minggu 1 (10 JP) • TP 1</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Minggu 1: Mengenal Makhluk Hidup dan Lingkungannya</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('1', 'Makhluk Hidup dan Lingkungannya')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Modul Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-blue-900 dark:text-blue-300 font-sans">A. Ciri-Ciri Makhluk Hidup & Kebutuhan Dasar</h3>
+                    <p>Makhluk hidup adalah organisme yang mempunyai karakteristik kehidupan sehingga mampu menjalankan berbagai proses biologis untuk mempertahankan hidupnya. Makhluk hidup bernapas (respirasi seluler), memerlukan energi/makanan (fotosintesis pada tumbuhan atau konsumsi bagi hewan), tumbuh dan berkembang, bergerak, peka terhadap rangsangan (iritabilitas), berkembang biak (seksual & aseksual), mengeluarkan zat sisa, dan melakukan metabolisme seluler.</p>
+                </div>
+            </div>
+
+            <!-- MODUL 2: MINGGU 2 (INTERAKSI & ENERGI) + FORMATIF AKHIR TP 1 -->
+            <div id="tab-modul-2" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-indigo-600 uppercase">Buku Digital • Bab 2 • Minggu 2 (10 JP) • TP 1 + Evaluasi Akhir TP 1</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Minggu 2: Interaksi Antarorganisme & Asesmen Formatif Akhir TP 1</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('2', 'Interaksi dan Aliran Energi')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Modul Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-indigo-900 dark:text-indigo-300 font-sans">A. Simbiosis & Aliran Energi Ekosistem</h3>
+                    <p>Interaksi antarmakhluk hidup mencakup mutualisme, komensalisme, parasitisme, predasi, dan kompetisi. Aliran energi mengalir dari matahari ke produsen dan konsumen dengan hukum efisiensi energi.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="font-bold text-base text-slate-900 dark:text-white">Asesmen Formatif Akhir TP 1 (20 Pilihan Ganda & 5 Essay Lengkap)</h3>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border"><p class="font-bold">1. Kesatuan fungsional antara makhluk hidup dengan lingkungan abiotiknya disebut...</p><p class="text-slate-500 mt-1">A. Populasi<br>B. Komunitas<br>C. Ekosistem<br>D. Biosfer<br>E. Habitat</p><p class="mt-1 font-semibold text-emerald-600">Kunci: C | Pembahasan: Ekosistem adalah sistem ekologi hubungan timbal balik.</p></div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border"><p class="font-bold">2. Aliran energi dalam ekosistem bermula dari...</p><p class="text-slate-500 mt-1">A. Tanah<br>B. Matahari<br>C. Air<br>D. Udara<br>E. Batuan</p><p class="mt-1 font-semibold text-emerald-600">Kunci: B</p></div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border"><p class="font-bold">3. Simbiosis mutualisme ditunjukkan oleh hubungan antara...</p><p class="text-slate-500 mt-1">A. Benalu dan pohon mangga<br>B. Kutu dan anjing<br>C. Lebah dan bunga<br>D. Anggrek dan inang<br>E. Cacing perut dan manusia</p><p class="mt-1 font-semibold text-emerald-600">Kunci: C</p></div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border mt-4"><p class="font-bold">Essay 1: Jelaskan perbedaan mendasar antara komponen biotik dan abiotik dalam suatu ekosistem!</p><p class="text-emerald-600 font-semibold mt-1">Pembahasan: Komponen biotik adalah seluruh makhluk hidup, sedangkan komponen abiotik adalah faktor fisik tak hidup.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUL 3: MINGGU 3 (PROJEK 1 - JOBSHEET TERARIUM MURNI TANPA SOAL TEORI) -->
+            <div id="tab-modul-3" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-purple-600 uppercase">Projek 1 • Minggu 3 (8 JP) • LKPD & Jobsheet Praktikum Tanpa Soal Teori</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">JOBSHEET PROJEK 1: Perencanaan & Desain Mini Ekosistem (Terarium)</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('3', 'Jobsheet Projek 1 Perencanaan Mini Ekosistem')" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Jobsheet Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-xl text-purple-900 dark:text-purple-300 font-sans">Panduan Operasional & Langkah Kerja Pembuatan Terrarium</h3>
+                    <p>Praktikum mandiri ini dirancang agar peserta didik mampu mengaplikasikan siklus biogeokimia tertutup dalam wadah kaca transparan.</p>
+                    <ol class="list-decimal pl-5 space-y-3 font-sans text-xs">
+                        <li><strong>Persiapan Alat dan Bahan:</strong> Siapkan toples kaca bekas transparan, kerikil halus untuk drainase, arang aktif (filtrasi bau & racun), tanah humus subur, tanaman hias mini (suplir/sirih gading), dan botol spray air.</li>
+                        <li><strong>Penyusunan Lapisan Dasar:</strong> Masukkan lapisan kerikil setinggi 3 cm di dasar toples sebagai rongga drainase air.</li>
+                        <li><strong>Pemberian Arang Aktif:</strong> Taburkan serbuk arang aktif di atas kerikil untuk menyerap zat racun dan menjaga kebersihan air di dalam ekosistem tertutup.</li>
+                        <li><strong>Pemasukan Media Tanam:</strong> Masukkan tanah humus setinggi 5-7 cm. Pastikan kelembapan tanah cukup (tidak terlalu basah).</li>
+                        <li><strong>Penanaman Flora:</strong> Tanam tanaman hias mini secara hati-hati menggunakan pinset atau tangan bersih. Atur tata letak secara estetis.</li>
+                        <li><strong>Penyemprotan Awal & Penutupan:</strong> Semprotkan air secukupnya (2-3 kali semprotan), lalu tutup rapat wadah toples agar tercipta siklus hidrologi mini mandiri.</li>
+                    </ol>
+                    <div class="mt-4 p-4 bg-white rounded-lg border">
+                        <h4 class="font-bold text-sm text-purple-900 mb-2">Tabel Lembar Kerja Pengamatan Harian</h4>
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100"><th class="p-2 border">Hari ke-</th><th class="p-2 border">Kondisi Embun Dinding</th><th class="p-2 border">Kesegaran Tanaman</th><th class="p-2 border">Catatan Khusus</th></tr></thead>
+                            <tbody>
+                                <tr><td class="p-2 border">Hari 1</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td></tr>
+                                <tr><td class="p-2 border">Hari 7</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td></tr>
+                                <tr><td class="p-2 border">Hari 14</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUL 4: MINGGU 4 (PROJEK 1 - JOBSHEET BUMI MURNI TANPA SOAL TEORI) -->
+            <div id="tab-modul-4" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-pink-600 uppercase">Projek 1 • Minggu 4 (18 JP) • LKPD & Jobsheet Praktikum Tanpa Soal Teori</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">JOBSHEET PROJEK 1: Pengamatan Terarium & Kajian Lapisan Bumi</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('4', 'Jobsheet Projek 1 Praktik Terarium dan Lapisan Bumi')" class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Jobsheet Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-xl text-pink-900 dark:text-pink-300 font-sans">Langkah-Langkah Observasi & Analisis Struktur Lapisan Bumi</h3>
+                    <ol class="list-decimal pl-5 space-y-3 font-sans text-xs">
+                        <li><strong>Pencatatan Kondensasi Harian:</strong> Amati titik-titik embun di dinding toples setiap pagi dan sore hari selama 14 hari berturut-turut.</li>
+                        <li><strong>Analisis Siklus Air Mini:</strong> Catat bagaimana uap air menguap dari daun dan tanah, lalu mengembun di dinding toples dan jatuh kembali ke tanah.</li>
+                        <li><strong>Kajian Struktur Lapisan Bumi:</strong> Buat laporan penampang melintang struktur internal bumi (Kerak Bumi, Mantel Astenosfer, Inti Luar, dan Inti Dalam) serta hubungannya dengan fenomena tektonik.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- MODUL 5: MINGGU 5 (ZAT & PERUBAHANNYA) + FORMATIF AKHIR TP 2 -->
+            <div id="tab-modul-5" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-rose-600 uppercase">Buku Digital • Bab 5 • Minggu 5 (5 JP) • TP 2 + Evaluasi Akhir TP 2</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Minggu 5: Zat & Perubahannya & Asesmen Formatif Akhir TP 2</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('5', 'Zat dan Perubahannya')" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Modul Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-rose-900 dark:text-rose-300 font-sans">A. Materi, Wujud Zat & Sifat Fisika/Kimia</h3>
+                    <p>Materi adalah segala sesuatu yang mempunyai massa dan menempati ruang, tersusun atas atom, molekul, dan ion. Wujud padat, cair, dan gas dibedakan berdasarkan jarak dan gerak partikelnya. Perubahan fisika tidak membentuk zat baru, sedangkan perubahan kimia menghasilkan zat baru dengan sifat berbeda.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="font-bold text-base text-slate-900 dark:text-white">Asesmen Formatif Akhir TP 2 (20 Pilihan Ganda & 5 Essay Lengkap)</h3>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border"><p class="font-bold">1. Segala sesuatu yang mempunyai massa dan menempati ruang disebut...</p><p class="text-slate-500 mt-1">A. Energi<br>B. Materi<br>C. Gaya<br>D. Suhu<br>E. Kalor</p><p class="mt-1 font-semibold text-emerald-600">Kunci: B | Pembahasan: Materi adalah definisi massa dan volume ruang.</p></div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border"><p class="font-bold">2. Perubahan wujud zat dari padat langsung menjadi gas disebut...</p><p class="text-slate-500 mt-1">A. Mencair<br>B. Menguap<br>C. Menyublim<br>D. Mengembun<br>E. Membeku</p><p class="mt-1 font-semibold text-emerald-600">Kunci: C</p></div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border mt-4"><p class="font-bold">Essay 1: Jelaskan perbedaan utama antara perubahan fisika dan perubahan kimia!</p><p class="text-emerald-600 font-semibold mt-1">Pembahasan: Perubahan fisika tidak menghasilkan zat baru dan sifat kimia tetap, sedangkan perubahan kimia menghasilkan zat jenis baru dengan sifat kimia yang berbeda.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUL 6: MINGGU 6 (PROJEK 2 - JOBSHEET ES KRIM MURNI TANPA SOAL TEORI) -->
+            <div id="tab-modul-6" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-orange-600 uppercase">Projek 2 • Minggu 6 (13 JP) • LKPD & Jobsheet Praktikum Tanpa Soal Teori</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">JOBSHEET PROJEK 2: Eksperimen Pembuatan Es Krim (Kalor & Penurunan Titik Beku)</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('6', 'Jobsheet Projek 2 Eksperimen Pembuatan Es Krim')" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Jobsheet Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-xl text-orange-900 dark:text-orange-300 font-sans">Langkah-Langkah Pengerjaan Projek Es Krim Putar</h3>
+                    <ol class="list-decimal pl-5 space-y-3 font-sans text-xs">
+                        <li><strong>Penyiapan Bahan Adonan:</strong> Campurkan susu cair/santan, gula pasir secukupnya, dan perisa makanan dalam mangkuk kecil hingga homogen.</li>
+                        <li><strong>Pengisian Kantong Ziplock Kecil:</strong> Tuangkan adonan cair ke dalam kantong plastik ziplock kecil, lalu tutup rapat dan pastikan tidak ada kebocoran.</li>
+                        <li><strong>Penyiapan Media Pendingin:</strong> Masukkan es batu ukuran sedang dan garam kasar secukupnya ke dalam kantong ziplock ukuran besar.</li>
+                        <li><strong>Penyisipan & Pengocokan:</strong> Masukkan kantong adonan ke dalam kantong es batu dan garam. Tutup rapat kantong besar.</li>
+                        <li><strong>Guncangan & Pendinginan:</strong> Bungkus kantong besar dengan handuk atau sarung tangan, lalu kocok dan putar secara konstan selama 10-15 menit. Garam akan menurunkan titik beku es sehingga adonan membeku menjadi es krim.</li>
+                    </ol>
+                    <div class="mt-4 p-4 bg-white rounded-lg border">
+                        <h4 class="font-bold text-sm text-orange-900 mb-2">Tabel Data Percobaan Pembuatan Es Krim</h4>
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100"><th class="p-2 border">Kelompok</th><th class="p-2 border">Jumlah Garam (gram)</th><th class="p-2 border">Waktu Pembekuan (menit)</th><th class="p-2 border">Tekstur Es Krim</th></tr></thead>
+                            <tbody>
+                                <tr><td class="p-2 border">Kelompok 1</td><td class="p-2 border">50 gram</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td></tr>
+                                <tr><td class="p-2 border">Kelompok 2</td><td class="p-2 border">100 gram</td><td class="p-2 border">___________________</td><td class="p-2 border">___________________</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUL 7: MINGGU 7 (PERILAKU EKONOMI) + FORMATIF AKHIR TP 3 -->
+            <div id="tab-modul-7" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase">Buku Digital • Bab 7 • Minggu 7 (5 JP) • TP 3 + Evaluasi Akhir TP 3</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Minggu 7: Perilaku Ekonomi & Kesejahteraan & Asesmen Formatif Akhir TP 3</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('7', 'Perilaku Ekonomi dan Kesejahteraan')" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Modul Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-lg text-amber-900 dark:text-amber-300 font-sans">A. Kebutuhan, Kelangkaan & Skala Prioritas</h3>
+                    <p>Kelangkaan sumber daya memaksa manusia membuat pilihan dan menetapkan skala prioritas. Kegiatan ekonomi mencakup produksi, distribusi, dan konsumsi. Literasi keuangan mencakup pengelolaan pendapatan, pengeluaran, tabungan, dan investasi secara bijak.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="font-bold text-base text-slate-900 dark:text-white">Asesmen Formatif Akhir TP 3 (20 Pilihan Ganda & 5 Essay Lengkap)</h3>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border"><p class="font-bold">1. Kondisi ketika kebutuhan manusia banyak sedangkan sumber daya terbatas disebut...</p><p class="text-slate-500 mt-1">A. Produksi<br>B. Konsumsi<br>C. Kelangkaan<br>D. Distribusi<br>E. Investasi</p><p class="mt-1 font-semibold text-emerald-600">Kunci: C | Pembahasan: Kelangkaan adalah inti masalah ekonomi.</p></div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border"><p class="font-bold">2. Kegiatan menghasilkan barang atau jasa untuk meningkatkan nilai guna disebut...</p><p class="text-slate-500 mt-1">A. Konsumsi<br>B. Distribusi<br>C. Produksi<br>D. Investasi<br>E. Tabungan</p><p class="mt-1 font-semibold text-emerald-600">Kunci: C</p></div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border mt-4"><p class="font-bold">Essay 1: Jelaskan apa yang dimaksud dengan kelangkaan dan mengapa hal tersebut memicu manusia harus membuat pilihan!</p><p class="text-emerald-600 font-semibold mt-1">Pembahasan: Kelangkaan adalah keterbatasan sumber daya dibanding kebutuhan. Manusia harus memilih alternatif terbaik karena sumber daya tidak cukup untuk memenuhi seluruh keinginan.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUL 8: MINGGU 8 (PROJEK 3 - JOBSHEET SAMPAH 3R MURNI TANPA SOAL TEORI) -->
+            <div id="tab-modul-8" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase">Projek 3 • Minggu 8 (13 JP) • LKPD & Jobsheet Praktikum Tanpa Soal Teori</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">JOBSHEET PROJEK 3: Pengolahan Sampah 3R & Analisis Ekonomi Sederhana</h2>
+                    </div>
+                    <button onclick="downloadWordDoc('8', 'Jobsheet Projek 3 Pengolahan Sampah 3R dan Analisis Ekonomi')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Jobsheet Word</span>
+                    </button>
+                </div>
+                <div class="bg-book-bg text-book-text border-2 border-book-border rounded-xl p-6 lg:p-10 shadow-xl space-y-6 textbook-font text-sm">
+                    <h3 class="font-bold text-xl text-emerald-900 dark:text-emerald-300 font-sans">Langkah-Langkah Pengerjaan Projek Pengolahan Sampah 3R</h3>
+                    <ol class="list-decimal pl-5 space-y-3 font-sans text-xs">
+                        <li><strong>Audit Sampah Sekolah:</strong> Lakukan pengambilan sampel sampah di area sekolah selama 1 jam, lalu pilah menjadi kategori Organik, Anorganik, dan B3.</li>
+                        <li><strong>Penimbangan & Pencatatan Data:</strong> Timbang berat masing-masing jenis sampah dan masukkan ke dalam tabel pengamatan untuk melihat sumber dominan.</li>
+                        <li><strong>Penerapan Prinsip 3R:</strong> Rancang aksi nyata Reduce (kurangi plastik), Reuse (gunakan kembali botol bekas), dan Recycle (olah sampah organik menjadi kompos atau buat kerajinan upcycling).</li>
+                        <li><strong>Analisis Ekonomi Sederhana:</strong> Hitung modal bahan tambahan, tenaga kerja, serta estimasi harga jual produk hasil daur ulang untuk menghitung margin keuntungan.</li>
+                    </ol>
+                    <div class="mt-4 p-4 bg-white rounded-lg border">
+                        <h4 class="font-bold text-sm text-emerald-900 mb-2">Tabel Audit & Analisis Ekonomi Sampah</h4>
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead><tr class="bg-slate-100"><th class="p-2 border">Jenis Sampah</th><th class="p-2 border">Berat (kg)</th><th class="p-2 border">Aksi 3R</th><th class="p-2 border">Estimasi Nilai Jual</th></tr></thead>
+                            <tbody>
+                                <tr><td class="p-2 border">Plastik Anorganik</td><td class="p-2 border">___________________</td><td class="p-2 border">Recycle / Upcycling</td><td class="p-2 border">Rp _______________</td></tr>
+                                <tr><td class="p-2 border">Sisa Makanan (Organik)</td><td class="p-2 border">___________________</td><td class="p-2 border">Kompos Komunal</td><td class="p-2 border">Rp _______________</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUL 9: MINGGU 9 (SUMATIF BLOK II) -->
+            <div id="tab-modul-9" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase">Evaluasi Akhir • Minggu 9 (9 JP) • Sumatif Blok II Ganjil</span>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Naskah Sumatif Blok II (Evaluasi Komprehensif Semester Ganjil)</h2>
+                    </div>
+                    <button onclick="downloadSumatifWord()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-word"></i><span>Download Naskah Sumatif Word</span>
+                    </button>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 shadow-sm space-y-4 text-xs">
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border">
+                        <p class="font-bold">1. Dalam ekosistem kolam sekolah, faktor abiotik yang paling menentukan respirasi ikan adalah...</p>
+                        <p class="text-slate-500 mt-1">A. Batu hias<br>B. Kadar oksigen terlarut (DO) dan pH air<br>C. Warna dinding kolam<br>D. Kedalaman semen kolam<br>E. Jenis lumut dinding</p>
+                        <p class="mt-1 font-semibold text-emerald-600">Kunci: B | Pembahasan: Oksigen terlarut adalah faktor abiotik esensial.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border">
+                        <p class="font-bold">2. Pada pembuatan es krim putar, penambahan garam kasar pada es batu bertujuan untuk...</p>
+                        <p class="text-slate-500 mt-1">A. Menaikkan titik didih<br>B. Menurunkan titik beku larutan es<br>C. Mengubah rasa menjadi asin<br>D. Mempercepat penguapan<br>E. Mengikat protein</p>
+                        <p class="mt-1 font-semibold text-emerald-600">Kunci: B | Pembahasan: Garam menurunkan titik beku es secara optimal.</p>
+                    </div>
+                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border mt-4"><p class="font-bold">Essay 1: Jelaskan hubungan timbal balik antara komponen biotik dan abiotik dalam ekosistem kolam sekolah!</p><p class="text-emerald-600 font-semibold mt-1">Pembahasan: Komponen biotik membutuhkan komponen abiotik untuk respirasi dan fotosintesis.</p></div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAL KELAS -->
+    <div id="modalClass" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md border shadow-xl">
+            <h3 id="classModalTitle" class="text-lg font-bold text-slate-900 dark:text-white mb-4">Tambah Kelas Baru</h3>
+            <input type="hidden" id="editClassIndex" value="-1">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nama Kelas / Rombel (Contoh: X PPLG 1)</label>
+                    <input type="text" id="inputClassName" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white" placeholder="Nama kelas...">
+                </div>
+            </div>
+            <div class="mt-6 flex justify-end space-x-3">
+                <button onclick="closeClassModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-200 text-slate-700">Batal</button>
+                <button onclick="saveClass()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-primary-600 text-white">Simpan Kelas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SISWA -->
+    <div id="modalStudent" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md border shadow-xl">
+            <h3 id="studentModalTitle" class="text-lg font-bold text-slate-900 dark:text-white mb-4">Tambah Siswa Baru</h3>
+            <input type="hidden" id="editStudentId" value="-1">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Pilih Kelas</label>
+                    <select id="modalStudentClass" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white"></select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nama Lengkap Siswa</label>
+                    <input type="text" id="modalStudentName" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white" placeholder="Nama siswa...">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">NISN (Kolom A)</label>
+                    <input type="text" id="modalStudentNis" class="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white" placeholder="NISN...">
+                </div>
+            </div>
+            <div class="mt-6 flex justify-end space-x-3">
+                <button onclick="closeStudentModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-200 text-slate-700">Batal</button>
+                <button onclick="saveStudent()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 text-white">Simpan Siswa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATABASE & APPLICATION LOGIC -->
+    <script>
+        // Database Kosong Dinamis Murni (Siap diisi oleh Guru sesuai kebutuhan)
+        const INITIAL_DATABASE = {
+            classes: [],
+            students: [],
+            presensi: {}
+        };
+
+        // Memuat database dari localStorage atau fallback ke inisialisasi kosong
+        let appData = JSON.parse(localStorage.getItem('ipas_app_db_v17')) || INITIAL_DATABASE;
+
+        function saveData() {
+            localStorage.setItem('ipas_app_db_v17', JSON.stringify(appData));
+            updateStats();
+        }
+
+        document.getElementById('sidebarToggle').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        });
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const targetEl = document.getElementById('tab-' + tabId);
+            if (targetEl) targetEl.classList.remove('hidden');
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('bg-slate-800', 'text-white'));
+            const active = document.querySelector(`.nav-item[data-target="${tabId}"]`);
+            if (active) active.classList.add('bg-slate-800', 'text-white');
+            if (window.innerWidth < 1024) document.getElementById('sidebar').classList.add('-translate-x-full');
+            if (tabId === 'rekap-presensi') {
+                renderRekapPresensiTable();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function initApp() {
+            renderClassTable();
+            populateClassDropdowns();
+            renderStudentTable();
+            
+            const today = new Date().toISOString().split('T')[0];
+            const dateInput = document.getElementById('presensiDateInput');
+            if (dateInput && !dateInput.value) {
+                dateInput.value = today;
+            }
+            renderPresensiTable();
+            renderRekapPresensiTable();
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('statTotalKelas').innerText = appData.classes.length + ' Kelas';
+            document.getElementById('statTotalSiswa').innerText = appData.students.length + ' Siswa';
+        }
+
+        function populateClassDropdowns() {
+            const selects = ['selectStudentFilter', 'presensiClassSelect', 'modalStudentClass', 'selectRekapClass'];
+            selects.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (appData.classes.length === 0) {
+                        el.innerHTML = '<option value="">(Belum ada kelas)</option>';
+                    } else {
+                        el.innerHTML = appData.classes.map(c => `<option value="${c}">${c}</option>`).join('');
+                    }
+                }
+            });
+        }
+
+        function renderClassTable() {
+            const tbody = document.getElementById('classTableBody');
+            if (appData.classes.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-slate-500">Belum ada kelas yang terdaftar. Silakan klik tombol "Tambah Kelas Baru".</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = appData.classes.map((c, idx) => {
+                const count = appData.students.filter(s => s.className === c).length;
+                return `
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
+                        <td class="p-3 border text-center font-medium">${idx + 1}</td>
+                        <td class="p-3 border font-bold text-slate-900 dark:text-white">${c}</td>
+                        <td class="p-3 border">${count} Siswa</td>
+                        <td class="p-3 border text-center space-x-2">
+                            <button onclick="editClass(${idx})" class="text-blue-600 hover:text-blue-800 p-1" title="Edit Kelas"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="deleteClass(${idx})" class="text-red-500 hover:text-red-700 p-1" title="Hapus Kelas"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function openClassModal(idx = -1) {
+            document.getElementById('editClassIndex').value = idx;
+            document.getElementById('inputClassName').value = idx >= 0 ? appData.classes[idx] : '';
+            document.getElementById('classModalTitle').innerText = idx >= 0 ? 'Edit Nama Kelas' : 'Tambah Kelas Baru';
+            document.getElementById('modalClass').classList.remove('hidden');
+        }
+        function closeClassModal() { document.getElementById('modalClass').classList.add('hidden'); }
+
+        function saveClass() {
+            const idx = parseInt(document.getElementById('editClassIndex').value);
+            const val = document.getElementById('inputClassName').value.trim();
+            if (!val) { alert('Nama kelas tidak boleh kosong!'); return; }
+            
+            if (idx >= 0) {
+                const oldName = appData.classes[idx];
+                appData.classes[idx] = val;
+                appData.students.forEach(s => { if (s.className === oldName) s.className = val; });
+            } else {
+                if (appData.classes.includes(val)) { alert('Kelas sudah ada!'); return; }
+                appData.classes.push(val);
+            }
+            saveData();
+            renderClassTable();
+            populateClassDropdowns();
+            closeClassModal();
+            alert('Data kelas berhasil disimpan!');
+        }
+
+        function editClass(idx) { openClassModal(idx); }
+        function deleteClass(idx) {
+            const cName = appData.classes[idx];
+            if (confirm(`Yakin ingin menghapus kelas ${cName}? Siswa di dalamnya akan ikut terhapus.`)) {
+                appData.classes.splice(idx, 1);
+                appData.students = appData.students.filter(s => s.className !== cName);
+                saveData();
+                renderClassTable();
+                populateClassDropdowns();
+                renderStudentTable();
+            }
+        }
+
+        function renderStudentTable() {
+            const cls = document.getElementById('selectStudentFilter').value;
+            const tbody = document.getElementById('studentTableBody');
+            if (!cls) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-500">Silakan buat kelas terlebih dahulu di menu Manajemen Kelas.</td></tr>`;
+                return;
+            }
+            const filtered = appData.students.filter(s => s.className === cls);
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-500">Belum ada siswa di kelas ${cls}.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map((s, idx) => `
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
+                    <td class="p-3 border text-center font-medium">${idx + 1}</td>
+                    <td class="p-3 border font-mono text-slate-600 dark:text-slate-400">${s.nis}</td>
+                    <td class="p-3 border font-bold text-slate-900 dark:text-white">${s.name}</td>
+                    <td class="p-3 border"><span class="px-2 py-0.5 bg-primary-100 text-primary-700 rounded text-[10px] font-semibold">${s.className}</span></td>
+                    <td class="p-3 border text-center space-x-2">
+                        <button onclick="editStudent(${s.id})" class="text-blue-600 hover:text-blue-800 p-1" title="Edit Siswa"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="deleteStudent(${s.id})" class="text-red-500 hover:text-red-700 p-1" title="Hapus Siswa"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openStudentModal(id = -1) {
+            if (appData.classes.length === 0) {
+                alert('Harap buat atau tambahkan Kelas terlebih dahulu sebelum memasukkan data siswa.');
+                switchTab('manajemen-kelas');
+                return;
+            }
+            document.getElementById('editStudentId').value = id;
+            document.getElementById('studentModalTitle').innerText = id >= 0 ? 'Edit Data Siswa' : 'Tambah Siswa Baru';
+            if (id >= 0) {
+                const s = appData.students.find(item => item.id === id);
+                if (s) {
+                    document.getElementById('modalStudentClass').value = s.className;
+                    document.getElementById('modalStudentName').value = s.name;
+                    document.getElementById('modalStudentNis').value = s.nis;
+                }
+            } else {
+                document.getElementById('modalStudentName').value = '';
+                document.getElementById('modalStudentNis').value = '';
+            }
+            document.getElementById('modalStudent').classList.remove('hidden');
+        }
+        function closeStudentModal() { document.getElementById('modalStudent').classList.add('hidden'); }
+
+        function saveStudent() {
+            const id = parseInt(document.getElementById('editStudentId').value);
+            const className = document.getElementById('modalStudentClass').value;
+            const name = document.getElementById('modalStudentName').value.trim();
+            const nis = document.getElementById('modalStudentNis').value.trim();
+
+            if (!name || !nis) { alert('Nama dan NISN wajib diisi!'); return; }
+
+            if (id >= 0) {
+                const s = appData.students.find(item => item.id === id);
+                if (s) { s.className = className; s.name = name; s.nis = nis; }
+            } else {
+                const newId = appData.students.length > 0 ? Math.max(...appData.students.map(item => item.id)) + 1 : 1;
+                appData.students.push({ id: newId, name, nis, className });
+            }
+            saveData();
+            renderStudentTable();
+            closeStudentModal();
+            alert('Data siswa berhasil disimpan!');
+        }
+
+        function editStudent(id) { openStudentModal(id); }
+        function deleteStudent(id) {
+            if (confirm('Yakin ingin menghapus data siswa ini?')) {
+                appData.students = appData.students.filter(s => s.id !== id);
+                saveData();
+                renderStudentTable();
+            }
+        }
+
+        function downloadCsvTemplate() {
+            const csvContent = "NISN;NAMA;KELAS\n24251001;Contoh Siswa 1;X PPLG 1\n24251002;Contoh Siswa 2;X PPLG 1";
+            const blob = new Blob(["\ufeff" + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "template_import_siswa_excel.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function handleExcelCsvImport(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split(/\r\n|\n/);
+                let addedCount = 0;
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    const separator = line.includes(';') ? ';' : ',';
+                    const parts = line.split(separator).map(p => p.trim().replace(/^["']|["']$/g, ''));
+                    if (parts.length >= 3) {
+                        const nis = parts[0];
+                        const name = parts[1];
+                        const className = parts[2];
+                        if (nis && name && className) {
+                            if (!appData.classes.includes(className)) appData.classes.push(className);
+                            const newId = appData.students.length > 0 ? Math.max(...appData.students.map(s => s.id)) + 1 : 1;
+                            appData.students.push({ id: newId, name, nis, className });
+                            addedCount++;
+                        }
+                    }
+                }
+                saveData();
+                populateClassDropdowns();
+                renderStudentTable();
+                renderClassTable();
+                alert(`Berhasil mengimpor ${addedCount} data siswa dari file Excel (CSV)!`);
+                event.target.value = '';
+            };
+            reader.readAsText(file);
+        }
+
+        function renderPresensiTable() {
+            const cls = document.getElementById('presensiClassSelect').value;
+            const dateVal = document.getElementById('presensiDateInput').value;
+            const tbody = document.getElementById('presensiTableBody');
+            if (!cls || appData.classes.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-500">Silakan tambahkan kelas dan siswa terlebih dahulu.</td></tr>`;
+                return;
+            }
+            const filtered = appData.students.filter(s => s.className === cls);
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-500">Tidak ada siswa pada kelas ${cls}.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map((s, idx) => {
+                const key = `${cls}_${dateVal}_s${s.id}`;
+                const rec = appData.presensi[key] || { status: "Hadir", notes: "" };
+                return `
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
+                        <td class="p-3 border text-center font-medium">${idx + 1}</td>
+                        <td class="p-3 border font-bold text-slate-900 dark:text-white">${s.name}</td>
+                        <td class="p-3 border font-mono text-slate-600">${s.nis}</td>
+                        <td class="p-3 border text-center">
+                            <div class="inline-flex rounded-lg shadow-sm" role="group">
+                                <button type="button" onclick="setPresStatus('${key}', 'Hadir')" class="px-2 py-1 text-[10px] font-bold rounded-l-lg border ${rec.status === 'Hadir' ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-slate-700'}">Hadir</button>
+                                <button type="button" onclick="setPresStatus('${key}', 'Izin')" class="px-2 py-1 text-[10px] font-bold border-t border-b ${rec.status === 'Izin' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700'}">Izin</button>
+                                <button type="button" onclick="setPresStatus('${key}', 'Sakit')" class="px-2 py-1 text-[10px] font-bold border-t border-b ${rec.status === 'Sakit' ? 'bg-amber-600 text-white border-amber-600' : 'bg-white text-slate-700'}">Sakit</button>
+                                <button type="button" onclick="setPresStatus('${key}', 'Alpa')" class="px-2 py-1 text-[10px] font-bold rounded-r-lg border ${rec.status === 'Alpa' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-slate-700'}">Alpa</button>
+                            </div>
+                        </td>
+                        <td class="p-3 border">
+                            <input type="text" value="${rec.notes || ''}" onchange="setPresNotes('${key}', this.value)" placeholder="Keterangan..." class="w-full bg-slate-50 dark:bg-slate-900 border rounded px-2 py-1 text-xs">
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function setPresStatus(key, status) {
+            if (!appData.presensi[key]) appData.presensi[key] = { status: "Hadir", notes: "" };
+            appData.presensi[key].status = status;
+            saveData();
+            renderPresensiTable();
+            renderRekapPresensiTable();
+        }
+        function setPresNotes(key, notes) {
+            if (!appData.presensi[key]) appData.presensi[key] = { status: "Hadir", notes: "" };
+            appData.presensi[key].notes = notes;
+            saveData();
+        }
+        function savePresensiData() { saveData(); renderRekapPresensiTable(); alert('Data presensi tanggal tersebut berhasil disimpan dan direkap!'); }
+
+        function renderRekapPresensiTable() {
+            const cls = document.getElementById('selectRekapClass').value;
+            const tbody = document.getElementById('rekapPresensiTableBody');
+            if (!cls || appData.classes.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-4 text-center text-slate-500">Belum ada data kelas yang tersedia.</td></tr>`;
+                return;
+            }
+            const filtered = appData.students.filter(s => s.className === cls);
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-4 text-center text-slate-500">Tidak ada data siswa untuk kelas ${cls}.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map((s, idx) => {
+                let h = 0, i = 0, sak = 0, a = 0;
+                for (let key in appData.presensi) {
+                    if (key.startsWith(`${cls}_`) && key.endsWith(`_s${s.id}`)) {
+                        const st = appData.presensi[key].status;
+                        if (st === 'Hadir') h++;
+                        else if (st === 'Izin') i++;
+                        else if (st === 'Sakit') sak++;
+                        else if (st === 'Alpa') a++;
+                    }
+                }
+                const total = h + i + sak + a;
+                const percentage = total > 0 ? ((h / total) * 100).toFixed(1) : '100.0';
+
+                return `
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
+                        <td class="p-3 border text-center font-medium">${idx + 1}</td>
+                        <td class="p-3 border font-mono text-slate-600 dark:text-slate-400">${s.nis}</td>
+                        <td class="p-3 border font-bold text-slate-900 dark:text-white">${s.name}</td>
+                        <td class="p-3 border text-center font-semibold text-emerald-600">${h}</td>
+                        <td class="p-3 border text-center font-semibold text-blue-600">${i}</td>
+                        <td class="p-3 border text-center font-semibold text-amber-600">${sak}</td>
+                        <td class="p-3 border text-center font-semibold text-red-600">${a}</td>
+                        <td class="p-3 border text-center font-bold text-slate-700 dark:text-slate-300">${percentage}%</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function downloadWordDoc(weekNum, weekTitle) {
+            const htmlContent = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head><meta charset='utf-8'><title>Modul Minggu ${weekNum}</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 20px; }
+                    .header { text-align: center; border-bottom: 3px double #1e3a8a; padding-bottom: 15px; margin-bottom: 20px; }
+                    .header h2 { color: #1e3a8a; margin: 0; font-size: 16pt; }
+                    .header h3 { color: #475569; margin: 5px 0 0 0; font-size: 13pt; }
+                    .meta { background: #f8fafc; padding: 10px; border: 1px solid #cbd5e1; margin-bottom: 20px; font-size: 11pt; }
+                    .section { margin-bottom: 20px; }
+                    .section h4 { color: #1e3a8a; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px; font-size: 12pt; }
+                </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h2>PERANGKAT PEMBELAJARAN / MODUL RESMI</h2>
+                        <h3>PROJEK IPAS BLOK 2 - MINGGU ${weekNum}: ${weekTitle}</h3>
+                        <p style="font-size: 11pt; margin: 5px 0 0 0;">SMK Negeri 1 Tasikmalaya | Guru Pengampu: Wiyanti Dewi Permana, SST., M.Pd</p>
+                    </div>
+                    <div class="meta">
+                        <strong>Nama Siswa:</strong> ___________________________________<br>
+                        <strong>Kelas / Kelompok:</strong> _______________________________<br>
+                        <strong>Hari / Tanggal:</strong> _________________________________
+                    </div>
+                    <div class="section">
+                        <h4>A. Panduan Belajar & Ringkasan Materi</h4>
+                        <p>Modul pembelajaran resmi untuk materi ${weekTitle}.</p>
+                    </div>
+                    <div style="margin-top: 40px; float: right; text-align: center; width: 250px;">
+                        <p>Tasikmalaya, _________________ 2026<br>Guru Mata Pelajaran,</p><br><br><br>
+                        <strong>Wiyanti Dewi Permana, SST., M.Pd</strong><br>NIP. 1980______________________
+                    </div>
+                </body>
+                </html>
+            `;
+            const blob = new Blob(['\ufeff' + htmlContent], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Modul_IPAS_Minggu_${weekNum}_${weekTitle.replace(/\s+/g, '_')}_SMKN1TSM.doc`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadSumatifWord() {
+            downloadWordDoc('Sumatif_Blok_II', 'Naskah Ujian Sumatif Blok II Semester Ganjil');
+        }
+
+        window.onload = () => { initApp(); };
+    </script>
+</body>
+</html>
